@@ -3,9 +3,11 @@ package App::Mousable;
 use strict;
 use warnings;
 
+use Dancer ':syntax';
+
 our $VERSION = '0.0.1';
 
-1;
+true;
 
 =head1 NAME
 
