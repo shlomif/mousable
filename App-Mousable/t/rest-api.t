@@ -11,10 +11,7 @@ use LWP::Protocol::PSGI;
 use JSON::XS qw(decode_json);
 
 {
-    my $psgi_app = do {
-        use App::Mousable;
-        App::Mousable::dance;
-    };
+    my $psgi_app = require App::Mousable;
 
     LWP::Protocol::PSGI->register($psgi_app);
 

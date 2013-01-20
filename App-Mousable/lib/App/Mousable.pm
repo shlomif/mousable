@@ -7,7 +7,7 @@ use Dancer ':syntax';
 
 our $VERSION = '0.0.1';
 
-true;
+dance;
 
 =head1 NAME
 
