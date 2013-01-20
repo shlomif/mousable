@@ -8,10 +8,13 @@ use Test::More tests => 3;
 use Test::WWW::Mechanize;
 use LWP::Protocol::PSGI;
 
+use App::Mousable;
+
 use JSON::XS qw(decode_json);
 
 {
-    my $psgi_app = require App::Mousable;
+    # my $psgi_app = require App::Mousable;
+    my $psgi_app = sub { App::Mousable::dance($_[0]) };
 
     LWP::Protocol::PSGI->register($psgi_app);
 
