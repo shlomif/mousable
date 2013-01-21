@@ -12,9 +12,11 @@ use App::Mousable;
 
 use JSON::XS qw(decode_json);
 
+# Thanks to haarg for the tip
+$ENV{PLACK_ENV} = 'test';
+
 {
-    # my $psgi_app = require App::Mousable;
-    my $psgi_app = sub { App::Mousable::dance($_[0]) };
+    my $psgi_app = App::Mousable::dance;
 
     LWP::Protocol::PSGI->register($psgi_app);
 
