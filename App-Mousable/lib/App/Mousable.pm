@@ -7,7 +7,7 @@ use JSON::XS qw(encode_json);
 
 use Dancer ':syntax';
 
-our $VERSION = '0.0.1';
+our $VERSION = 'v0.0.1';
 
 get '/api/hello' => sub {
     content_type 'application/json';
