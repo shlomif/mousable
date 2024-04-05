@@ -10,7 +10,7 @@ use LWP::Protocol::PSGI;
 
 use App::Mousable;
 
-use JSON::XS qw(decode_json);
+use JSON::MaybeXS qw(decode_json);
 
 # Thanks to haarg for the tip
 $ENV{PLACK_ENV} = 'test';
@@ -22,11 +22,10 @@ $ENV{PLACK_ENV} = 'test';
 
     my $mech = Test::WWW::Mechanize->new;
 
-    $mech->get_ok( 'http://localhost/api/hello' );
+    $mech->get_ok('http://localhost/api/hello');
 
     # TEST
-    is ($mech->content_type(), 'application/json',
-        "/api/hello returned JSON");
+    is( $mech->content_type(), 'application/json', "/api/hello returned JSON" );
 
     # TEST
     my $json = decode_json( $mech->content() );
